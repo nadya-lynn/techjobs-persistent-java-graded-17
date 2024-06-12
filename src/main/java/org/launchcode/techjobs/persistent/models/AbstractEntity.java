@@ -8,11 +8,15 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
 import java.util.Objects;
-
+@MappedSuperclass
 public abstract class AbstractEntity {
 
+    @Id
+    @GeneratedValue
     private int id;
 
+    @NotNull(message = "Please enter your name.")
+    @Size(min = 1, max = 255, message = "Name must be 1 to 255 characters long.")
     private String name;
 
     public int getId() {
