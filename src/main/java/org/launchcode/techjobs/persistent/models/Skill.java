@@ -8,15 +8,13 @@ import java.util.List;
 @Entity
 public class Skill extends AbstractEntity {
     @NotBlank
-    @Size(max = 75, message = "Field must be 75 characters pr less.")
+    @Size(max = 75, message = "Field must be 75 characters or less.")
     private String description;
     @ManyToMany(mappedBy = "skills")
     private List<Job> jobs = new ArrayList<>();
 
     public Skill() {
     }
-
-    ;
 
     public Skill(String description, List<Job> jobs) {
         this.description = description;
